@@ -5,6 +5,8 @@
 
 
     <!-- Page Content -->
+
+    <h1>Register New User</h1>
     <section class="py-5">
       <div class="container">
         

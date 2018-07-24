@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<h1>Login</h1>
 
     <!-- Page Content -->
     <section class="py-5">
