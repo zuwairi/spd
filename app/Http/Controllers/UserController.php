@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -27,9 +28,19 @@ public function registerPost(Request $request) {
     	],[
 
     		'name.required' => 'Sila Masukkan Nama',
+            'email.required' => 'Sila Masukkan Email',
     		'email.email' => 'Email Tidak Sah',
     		'email.unique' => 'Email Sudah Wujud',
     	]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;        
+        $user->ic = $request->ic;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return back()->with('success','Successfully Register');
     } 
 
 }
